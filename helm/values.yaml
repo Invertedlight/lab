@@ -2,3 +2,11 @@
 replicaCount: 1
 podsLabels:
   hello: worlds
+nodeExporter:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 1000Mi
+    limits:
+      cpu: 200m
+      memory: 5000Mi # Raise this value to prevent OOM termination

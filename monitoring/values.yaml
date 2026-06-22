@@ -1,0 +1,38 @@
+    deployment:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 2000Mi
+        requests:
+          cpu: 100m
+          memory: 5000Mi
+
+
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 2000Mi
+  requests:
+    cpu: 100m
+    memory: 5000Mi
+
+prometheusConfigReloader:
+  image:
+    registry: quay.io
+    repository: prometheus-operator/prometheus-config-reloader
+    # if not set appVersion field from Chart.yaml is used
+    tag: ""
+    sha: ""
+
+  # add prometheus config reloader liveness and readiness probe. Default: false
+  enableProbe: false
+
+  # resource config for prometheusConfigReloader
+  resources:
+    requests:
+      cpu: 200m
+      memory: 2000Mi
+    limits:
+      cpu: 500m
+      memory: 5000Mi
