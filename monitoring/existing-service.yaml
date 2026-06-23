@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"meta.helm.sh/release-name":"prometheus-stack","meta.helm.sh/release-namespace":"monitoring"},"labels":{"app.kubernetes.io/instance":"prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"grafana","app.kubernetes.io/version":"13.0.2","helm.sh/chart":"grafana-12.4.9"},"name":"prometheus-stack-grafana","namespace":"monitoring"},"spec":{"internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"name":"http-web","protocol":"TCP","targetPort":"grafana"}],"selector":{"app.kubernetes.io/instance":"prometheus-stack","app.kubernetes.io/name":"grafana"},"sessionAffinity":"None","type":"LoadBalancer"}}
+    meta.helm.sh/release-name: prometheus-stack
+    meta.helm.sh/release-namespace: monitoring
+  creationTimestamp: "2026-06-23T16:35:07Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app.kubernetes.io/instance: prometheus-stack
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/version: 13.0.2
+    helm.sh/chart: grafana-12.4.9
+  name: prometheus-stack-grafana
+  namespace: monitoring
+  resourceVersion: "209082"
+  uid: d4171ad7-75d0-412b-a28f-53a5d63bc895
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.43.21.204
+  clusterIPs:
+  - 10.43.21.204
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http-web
+    nodePort: 32194
+    protocol: TCP
+    targetPort: grafana
+  selector:
+    app.kubernetes.io/instance: prometheus-stack
+    app.kubernetes.io/name: grafana
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
